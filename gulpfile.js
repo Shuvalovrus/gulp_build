@@ -39,13 +39,13 @@ const mainTasks = gulp.parallel(copy,html, scss, js, images);
 // Построение сценариев выполнения задач
 const dev = gulp.series(reset,mainTasks,gulp.parallel(watcher, server));
 const build = gulp.series(reset, mainTasks);
-const push = gulp.series(reset, mainTasks, push)
+const deployGit = gulp.series(reset, mainTasks, push)
 const deployZip = gulp.series(reset, mainTasks, zip);
 // Экспорт сценариев
 export { dev }
 export { build }
 export { deployZip }
-export { push }
+export { deployGit }
 
 // Выполнение сценария по умолчанию
 gulp.task('default',dev);
